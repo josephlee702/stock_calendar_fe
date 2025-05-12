@@ -4,6 +4,7 @@ import axios from "axios";
 export const AuthContext = createContext({
   user: null,
   fetchUserData: () => {},
+  handleLogout: () => {},
 });
 
 export const AuthProvider = ({ children }) => {
@@ -43,6 +44,16 @@ export const AuthProvider = ({ children }) => {
       if (user) setUser(null);
       localStorage.clear();
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("access-token");
+    localStorage.removeItem("client");
+    localStorage.removeItem("uid");
+    localStorage.removeItem("expiry");
+    localStorage.removeItem("token-type");
+    setUser(null);
+    window.location.reload(); // Optional: triggers re-fetch of app state
   };
 
   useEffect(() => {
