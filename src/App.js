@@ -22,16 +22,6 @@ const App = () => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("access-token");
-    localStorage.removeItem("client");
-    localStorage.removeItem("uid");
-    localStorage.removeItem("expiry");
-    localStorage.removeItem("token-type");
-    fetchUserData();
-    window.location.reload();
-  }
-
   return (
     <AuthProvider>
       <Router>
