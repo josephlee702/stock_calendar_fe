@@ -4,7 +4,7 @@ import { AuthContext } from "../context/Authcontext";
 import "./NavBar.css";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
-  const { user, fetchUserData } = useContext(AuthContext);
+  const { user, fetchUserData, handleLogout } = useContext(AuthContext);
 
   useEffect(() => {
     fetchUserData();
