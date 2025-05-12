@@ -9,11 +9,6 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   useEffect(() => {
     fetchUserData();
   }, [fetchUserData]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  }
  
   return (
     <nav className="navbar d-flex flex-row justify-content-start p-2 bg-dark text-white">
